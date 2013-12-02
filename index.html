@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Portfolio - Sebastiaan Schoute</title>
+  <style type="text/css" media="screen, print">
+
+    html, body  { width:100%; height:100%; }
+    body
+    { 
+      position:absolute; 
+      left:0; top:0; 
+      margin-right: 0px; margin-bottom: 0px; margin-top: 0px; 
+      padding:0; 
+      overflow:hidden; 
+      text-align:center; 
+    } 
+
+    div.container
+    {
+      
+      margin-left: auto;
+      margin-right: auto;
+      width: 1024px;
+      height: 768px;
+      text-align:center; 
+    }
+
+  </style>
+</head>
+<body onload="onLoadHandler()">
+   <div id="container" class="container">Please wait..</div>
+</body>
+<script src="phonegap.js"></script><!--must be here-->
+<script language="javascript">
+
+var initialized = false;
+
+function onLoadHandler()
+{
+
+  setTimeout(gotoURL,3000);
+
+}
+
+
+function gotoURL()
+{
+
+ // window.location.href = "http://ricohipad.bash01.nl/";
+  window.open("http://portfolio.sebastiaanschoute.nl/", "_blank","location=yes");
+
+  if(initialized == false){
+    var theContainer = document.getElementById("container");
+    theContainer.innerHTML = "Tap to re-open Portfolio";
+    theContainer.onclick = function(){
+      //kinda recursive
+      gotoURL();
+    }
+
+    initialized = true;
+
+  }
+}
+
+</script>
+</html>
